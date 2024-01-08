@@ -1,4 +1,3 @@
-
 using AuctionService.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -119,7 +118,7 @@ public class DbIntializer
                         ImageUrl = "https://cdn.pixabay.com/photo/2017/11/09/01/49/ferrari-458-spider-2932191_960_720.jpg"
                     }
                 },
-                new () { 
+                new () {
                     Id = Guid.Parse("47111973-d176-4feb-848d-0ea22641c31a"),
                     Status = Status.Live,
                     ReservePrice = 150000,
@@ -183,6 +182,7 @@ public class DbIntializer
                     }
                 }
             };
+
             context.AddRange(auctions);
             context.SaveChanges();
         }
