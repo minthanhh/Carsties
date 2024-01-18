@@ -8,6 +8,8 @@
 
 ### Drop Database
 
+-   dotnet tool update dotnet-ef -g
+
 -   dotnet ef database drop
 
 ### Flow Microservices with Dotnet
@@ -28,9 +30,7 @@ dotnet add reference ../../src/Contracts
 
 It uses a transport, one of several different types. Nó sử dụng một phương tiện vận truyển->[a transport], một trong nhiều loại khác nhau.
 
-That was one of my goals Đó là một trong những mục tiêu của tôi.
-
-Volcalbulary:
+That was one of my goals Đó là một trong những mục tiêu của tôi. This should go ahead - và điều này sẽ tiếp tục Volcalbulary:
 
 -   [OurDeveloperComputer]: Máy tính dành cho nhà phát triển của chúng tôi.
 -   [ReliantOn]: Dựa vào, phụ thuộc vào.

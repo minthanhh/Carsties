@@ -1,5 +1,4 @@
-﻿using System.Security.Claims;
-using IdentityModel;
+﻿using IdentityModel;
 using IdentityService.Data;
 using IdentityService.Models;
 using Microsoft.AspNetCore.Identity;
@@ -17,6 +16,9 @@ public class SeedData
         context.Database.Migrate();
 
         var userMgr = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+        if (userMgr.Users.Any()) return;
+
         var alice = userMgr.FindByNameAsync("alice").Result;
         if (alice == null)
         {
@@ -32,12 +34,7 @@ public class SeedData
                 throw new Exception(result.Errors.First().Description);
             }
 
-            result = userMgr.AddClaimsAsync(alice, new Claim[] {
-                            new (JwtClaimTypes.Name, "Alice Smith"),
-                            new (JwtClaimTypes.GivenName, "Alice"),
-                            new (JwtClaimTypes.FamilyName, "Smith"),
-                            new (JwtClaimTypes.WebSite, "http://alice.com"),
-                        }).Result;
+            result = userMgr.AddClaimsAsync(alice, [new(JwtClaimTypes.Name, "Alice Smith")]).Result;
             if (!result.Succeeded)
             {
                 throw new Exception(result.Errors.First().Description);
@@ -66,9 +63,7 @@ public class SeedData
                 throw new Exception(result.Errors.First().Description);
             }
 
-            result = userMgr.AddClaimsAsync(bob, new Claim[]{
-                            new (JwtClaimTypes.Name, "Bob Smith"),
-                        }).Result;
+            result = userMgr.AddClaimsAsync(bob, [new(JwtClaimTypes.Name, "Bob Smith")]).Result;
             if (!result.Succeeded)
             {
                 throw new Exception(result.Errors.First().Description);

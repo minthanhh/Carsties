@@ -1,5 +1,3 @@
-
-
 using Contracts;
 using MassTransit;
 

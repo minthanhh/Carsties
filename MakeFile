@@ -1,8 +1,1 @@
-down:
-	docker compose down
-
-up:
-	docker compose up -d
-
-rebuild:
-	docker compose up --build
+up: docker compose up

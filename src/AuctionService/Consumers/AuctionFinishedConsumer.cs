@@ -17,7 +17,7 @@ public class AuctionFinishedConsumer(AuctionDbContext dbContext) : IConsumer<Auc
             auction.SoldAmount = consumeContext.Message.Amount;
         }
 
-        auction!.Status = auction.SoldAmount > auction.ReservePrice ? Status.Live : Status.ReserveNotMet;
+        auction!.Status = auction.SoldAmount > auction.ReservePrice ? Status.Finished : Status.ReserveNotMet;
 
         await dbContext.SaveChangesAsync();
     }

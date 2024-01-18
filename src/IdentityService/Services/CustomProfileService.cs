@@ -12,9 +12,7 @@ public class CustomProfileService(UserManager<ApplicationUser> userManager) : IP
     {
         var user = await userManager.GetUserAsync(context.Subject);
         var existingClaims = await userManager.GetClaimsAsync(user);
-        var claims = new List<Claim> {
-            new ("username", user.UserName)
-        };
+        List<Claim> claims = [new("username", user.UserName)];
         context.IssuedClaims.AddRange(claims);
         context.IssuedClaims.Add(existingClaims.FirstOrDefault(x => x.Type == JwtClaimTypes.Name));
     }
