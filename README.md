@@ -1,7 +1,13 @@
-# Added services to (Project).sln in src directory.
+## Added services to (Project).sln in src directory:
 
 ```bash
-    dotnet sln add src/(ServiceName)
+dotnet sln add src/(ServiceName)
+```
+
+## Added references (Ex[Contracts]) to each src/(Service):
+
+```bash
+cd src/(ServiceName) && dotnet add reference ../../src/(Reference)
 ```
 
 ### Update Database
