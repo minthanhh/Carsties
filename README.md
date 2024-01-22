@@ -1,3 +1,9 @@
+# Added services to (Project).sln in src directory.
+
+```bash
+    dotnet sln add src/(ServiceName)
+```
+
 ### Update Database
 
 -   dotnet ef database update
